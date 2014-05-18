@@ -35,8 +35,8 @@ def adams_bashford(h, left, right):
 
 
 if __name__ == '__main__':
-    resrunge = runge_kutt(0.1, 0, 3)
-    resadam = adams_bashford(0.1, 0, 3)
+    resrunge = runge_kutt(0.1, 0, 4)
+    resadam = adams_bashford(0.1, 0, 4)
     x = 0
     i = 0
     # while x < 3:
@@ -48,23 +48,23 @@ if __name__ == '__main__':
     #     i += 1
     #     x += 0.1
 
-    while x < 3:
-        q = str(round(resadam[i], 7))
-        for _ in range(len(q)):
-            if q[_] == '.':
-                q = q[:_] + ',' + q[_+1:]
-        print(q)
-        i += 1
-        x += 0.1
-
     # while x < 3:
-    #     print(round(x, 2), (7 - len(str(round(x, 1)))) * ' ',
-    #           round(x**2, 4), (7 - len(str(round(x**2, 4)))) * ' ',
-    #           round(resrunge[i], 6), (12 - len(str(round(resrunge[i], 6)))) * ' ',
-    #           round(resadam[i], 7))
+    #     q = str(round(resadam[i], 7))
+    #     for _ in range(len(q)):
+    #         if q[_] == '.':
+    #             q = q[:_] + ',' + q[_+1:]
+    #     print(q)
     #     i += 1
     #     x += 0.1
-    # print(round(x, 1), (7 - len(str(round(x, 1)))) * ' ',
-    #       round(x**2, 4), (7 - len(str(round(x**2, 4)))) * ' ',
-    #       round(resrunge[i], 6), (12 - len(str(round(resrunge[i], 6)))) * ' ',
-    #       round(resadam[i], 7))
+
+    while x < 4:
+        print(round(x, 2), (7 - len(str(round(x, 1)))) * ' ',
+              round(x**2, 4), (7 - len(str(round(x**2, 4)))) * ' ',
+              round(resrunge[i], 6), (12 - len(str(round(resrunge[i], 6)))) * ' ',
+              round(resadam[i], 7))
+        i += 1
+        x += 0.1
+    print(round(x, 1), (7 - len(str(round(x, 1)))) * ' ',
+          round(x**2, 4), (7 - len(str(round(x**2, 4)))) * ' ',
+          round(resrunge[i], 6), (12 - len(str(round(resrunge[i], 6)))) * ' ',
+          round(resadam[i], 7))
