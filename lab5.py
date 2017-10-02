@@ -27,15 +27,15 @@ def buildSpline(dots):
         splines[i].x, splines[i].a = dots[i].x, dots[i].y
     alpha, beta = [defaultdict(lambda: 0.), defaultdict(lambda: 0.)]
     for i in range(1, len(dots) - 1):
-        c = 4. * in_step
+        c =4. * in_step
         f = 6. * ((dots[i + 1].y - dots[i].y) / in_step - (dots[i].y - dots[i - 1].y) / in_step)
         z = (in_step * alpha[i - 1] + c)
         alpha[i] = -in_step / z
-        beta[i] = (f - in_step * beta[i - 1]) / z
+        beta[i] =(f - in_step * beta[i - 1]) / z
     for i in reversed(range(1, len(dots) - 1)):
         splines[i].c = alpha[i] * splines[i + 1].c + beta[i]
     for i in reversed(range(1, len(dots))):
-        hi = dots[i].x - dots[i - 1].x
+        hi =dots[i].x - dots[i - 1].x
         splines[i].d = (splines[i].c - splines[i - 1].c) / hi
         splines[i].b = hi * (2.0 * splines[i].c + splines[i - 1].c) / 6.0 + (dots[i].y - dots[i - 1].y) / hi
 
